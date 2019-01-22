@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StatistiqueMatchController!{% endblock %}
+
+{% block body %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Team</th>
+      <th scope="col">Name</th>
+      <th scope="col">Kills</th>
+      <th scope="col">Deaths</th>
+      <th scope="col">Dlashbang Assists</th>
+      <th scope="col">teamkills</th>
+      <th scope="col">headshotKills</th>
+      <th scope="col">damage</th>
+      <th scope="col">bombPlants</th>
+      <th scope="col">bombDefuses</th>
+      <th scope="col">v1</th>
+      <th scope="col">v2</th>
+      <th scope="col">v3</th>
+      <th scope="col">v4</th>
+      <th scope="col">v5</th>
+      <th scope="col">k2</th>
+      <th scope="col">k3</th>
+      <th scope="col">k4</th>
+      <th scope="col">k5</th>
+      <th scope="col">First kill T</th>
+      <th scope="col">First kill Ct</th>
+      <th scope="col">First death T</th>
+      <th scope="col">First death Ct</th>
+    </tr>
+  </thead>
+    <tbody>
+        {% for statistique in statistiques %}
+            <tr>
+            <th scope="row">1</th>
+            <td>{{statistique.team}}</td>
+            <td>{{statistique.name}}</td>
+            <td>{{statistique.kills}}</td>
+            <td>{{statistique.deaths}}</td>
+            <td>{{statistique.assists}}</td>
+            <td>{{statistique.flashbangAssists}}</td>
+            <td>{{statistique.teamkills}}</td>
+            <td>{{statistique.headshotKills}}</td>
+            <td>{{statistique.damage}}</td>
+            <td>{{statistique.bombPlants}}</td>
+            <td>{{statistique.bombDefuses}}</td>
+            <td>{{statistique.v1}}</td>
+            <td>{{statistique.v2}}</td>
+            <td>{{statistique.v3}}</td>
+            <td>{{statistique.v4}}</td>
+            <td>{{statistique.v5}}</td>
+            <td>{{statistique.k2}}</td>
+            <td>{{statistique.k3}}</td>
+            <td>{{statistique.k4}}</td>
+            <td>{{statistique.k5}}</td>
+            <td>{{statistique.firstkillT}}</td>
+            <td>{{statistique.firstkillCt}}</td>
+            <td>{{statistique.firstdeathT}}</td>
+            <td>{{statistique.firstdeathCt}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

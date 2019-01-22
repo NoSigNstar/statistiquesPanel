@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Get5StatsMatches" table="get5_stats_matches">
+    <id name="matchid" type="integer" column="matchid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="startTime" type="datetime" column="start_time" nullable="false"/>
+    <field name="endTime" type="datetime" column="end_time" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="winner" type="string" column="winner" length="16" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">''</option>
+      </options>
+    </field>
+    <field name="seriesType" type="string" column="series_type" length="64" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">''</option>
+      </options>
+    </field>
+    <field name="team1Name" type="string" column="team1_name" length="64" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">''</option>
+      </options>
+    </field>
+    <field name="team1Score" type="smallint" column="team1_score" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="team2Name" type="string" column="team2_name" length="64" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">''</option>
+      </options>
+    </field>
+    <field name="team2Score" type="smallint" column="team2_score" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+        <option name="default">0</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

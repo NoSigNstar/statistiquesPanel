@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StatsController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container">
+        <div class="lead mt-3 pt-3 mb-3 pb-3">
+            <h2>Statistiques</h2>
+            <p class="text-muted">Retrouvez toutes les statistiques des matches</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+
+    </div>
+
+    <div class="row justify-content-md-center">
+        {% for matche in matches %}
+        {% set blScore = matche.team1Score %}
+        {% set awayScore = matche.team2Score %}
+        {% set bg = 'border-success' %}
+            {% if blScore > awayScore %}
+                {% set bg = 'border-success' %}
+            {% elseif blScore == awayScore %}
+                {% set bg = 'border-light' %}
+            {% else %}
+                {% set bg = 'border-danger' %}
+            {% endif %}
+        <div class="card {{ bg }} m-1 col-md-6 col-lg-3 shadow-lg">
+            <div class="card-title"><i class="far fa-calendar-alt"></i> {{ matche.startTime|date("m/d/Y H:i", "Europe/Paris") }}</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ matche.team1Name }}({{ matche.team1Score }}) VS {{ matche.team2Name }}({{ matche.team2Score }})</h4>
+                <p class="card-text"><i class="fas fa-flag"></i> {{ matche.seriesType }}</p>
+                <a href="{{ path('statistique_match', {'id' : matche.matchid}) }}" class="btn btn-outline-secondary card-link" >Voir les statistiques</a>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+{% endblock %}
