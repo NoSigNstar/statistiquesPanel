@@ -10,12 +10,13 @@
       <th scope="col">Team</th>
       <th scope="col">Name</th>
       <th scope="col">Kills</th>
-      <th scope="col">Deaths</th>
       <th scope="col">Assists</th>
-      <th scope="col">Flashbang Assists</th>
-      <th scope="col">Teamkills</th>
+      <th scope="col">Deaths</th>
+      <th scope="col">K/D Ratio</th>
       <th scope="col">HeadshotKills</th>
-      <th scope="col">Damage</th>
+      <th scope="col">HS %</th>
+      <th scope="col">ADR</th>
+      <th scope="col">Flashbang Assists</th>
       <th scope="col">Bomb Plants</th>
       <th scope="col">Bomb Defuses</th>
       <th scope="col">v1</th>
@@ -25,11 +26,6 @@
       <th scope="col">v5</th>
       <th scope="col">First kill T</th>
       <th scope="col">First kill Ct</th>
-      <th scope="col">First death T</th>
-      <th scope="col">First death Ct</th>
-      <th scope="col">ADR</th>
-      <th scope="col">HS %</th>
-      <th scope="col">K/D Ratio</th>
     </tr>
   </thead>
     <tbody>
@@ -39,12 +35,13 @@
               <td>{{statistique.team}}</td>
               <td>{{statistique.name}}</td>
               <td>{{statistique.kills}}</td>
-              <td>{{statistique.deaths}}</td>
               <td>{{statistique.assists}}</td>
-              <td>{{statistique.flashbang_assists}}</td>
-              <td>{{statistique.teamkills}}</td>
+              <td>{{statistique.deaths}}</td>
+              <td>{{(statistique.kills / statistique.deaths)|slice(0, 4)}}</td>
               <td>{{statistique.headshot_kills}}</td>
-              <td>{{statistique.damage}}</td>
+              <td>{{((statistique.headshot_kills / statistique.kills) * 100)|slice(0, 4)}}</td>
+              <td>{{(statistique.damage / statistique.rounds_played)|slice(0, 4)}}</td>
+              <td>{{statistique.flashbang_assists}}</td>
               <td>{{statistique.bomb_plants}}</td>
               <td>{{statistique.bomb_defuses}}</td>
               <td>{{statistique.v1}}</td>
@@ -54,11 +51,6 @@
               <td>{{statistique.v5}}</td>
               <td>{{statistique.firstkill_t}}</td>
               <td>{{statistique.firstkill_ct}}</td>
-              <td>{{statistique.firstdeath_t}}</td>
-              <td>{{statistique.firstdeath_ct}}</td>
-              <td>{{(statistique.damage / statistique.rounds_played)|slice(0, 4)}}</td>
-              <td>{{((statistique.headshot_kills / statistique.kills) * 100)|slice(0, 4)}}</td>
-              <td>{{(statistique.kills / statistique.deaths)|slice(0, 4)}}</td>
             </tr>
         {% endfor %}
     </tbody>
