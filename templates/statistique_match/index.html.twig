@@ -27,6 +27,9 @@
       <th scope="col">First kill Ct</th>
       <th scope="col">First death T</th>
       <th scope="col">First death Ct</th>
+      <th scope="col">ADR</th>
+      <th scope="col">HS %</th>
+      <th scope="col">K/D Ratio</th>
     </tr>
   </thead>
     <tbody>
@@ -53,6 +56,9 @@
               <td>{{statistique.firstkill_ct}}</td>
               <td>{{statistique.firstdeath_t}}</td>
               <td>{{statistique.firstdeath_ct}}</td>
+              <td>{{(statistique.damage / statistique.rounds_played)|slice(0, 4)}}</td>
+              <td>{{((statistique.headshot_kills / statistique.kills) * 100)|slice(0, 4)}}</td>
+              <td>{{(statistique.kills / statistique.deaths)|slice(0, 4)}}</td>
             </tr>
         {% endfor %}
     </tbody>
