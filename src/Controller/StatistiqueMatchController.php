@@ -14,10 +14,13 @@ class StatistiqueMatchController extends AbstractController
      */
     public function index(Get5StatsPlayersRepository $repository, $id)
     {
-        $statistiques = $repository->findBy(
-            ['matchid' => $id],
-            ['kills' => 'ASC']
-        );
+        $em = $this->getDoctrine()->getManager();
+        $RAW_QUERY ='SELECT * FROM `get5_stats_players` WHERE matchid = '.$id.'';
+
+        $statement = $em->getConnection()->prepare($RAW_QUERY);
+        $statement->execute();
+
+        $statistiques = $statement->fetchAll();
 
         return $this->render('statistique_match/index.html.twig', [
             'controller_name' => 'StatistiqueMatchController',
