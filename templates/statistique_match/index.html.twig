@@ -3,29 +3,29 @@
 {% block title %}Hello StatistiqueMatchController!{% endblock %}
 
 {% block body %}
-<table class="table mt-3 pt-3" style="font-size: 11px; text-align: center;">
+<table class="table table table-striped table-bordered mt-3 pt-3" style="font-size: 11px; text-align: center;" id="dtBasicExample" cellspacing="0" width="100%">
   <thead class="thead-light">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Team</th>
-      <th scope="col">Name</th>
-      <th scope="col">Kills</th>
-      <th scope="col">Assists</th>
-      <th scope="col">Deaths</th>
-      <th scope="col">K/D Ratio</th>
-      <th scope="col">HeadshotKills</th>
-      <th scope="col">HS %</th>
-      <th scope="col">ADR</th>
-      <th scope="col">Flashbang Assists</th>
-      <th scope="col">Bomb Plants</th>
-      <th scope="col">Bomb Defuses</th>
-      <th scope="col">v1</th>
-      <th scope="col">v2</th>
-      <th scope="col">v3</th>
-      <th scope="col">v4</th>
-      <th scope="col">v5</th>
-      <th scope="col">First kill T</th>
-      <th scope="col">First kill Ct</th>
+      <th scope="col th-sm">#</th>
+      <th scope="col th-sm">Team</th>
+      <th scope="col th-sm">Name</th>
+      <th scope="col th-sm">Kills</th>
+      <th scope="col th-sm">Assists</th>
+      <th scope="col th-sm">Deaths</th>
+      <th scope="col th-sm">K/D Ratio</th>
+      <th scope="col th-sm">HeadshotKills</th>
+      <th scope="col th-sm">HS %</th>
+      <th scope="col th-sm">ADR</th>
+      <th scope="col th-sm">Flashbang Assists</th>
+      <th scope="col th-sm">Bomb Plants</th>
+      <th scope="col th-sm">Bomb Defuses</th>
+      <th scope="col th-sm">v1</th>
+      <th scope="col th-sm">v2</th>
+      <th scope="col th-sm">v3</th>
+      <th scope="col th-sm">v4</th>
+      <th scope="col th-sm">v5</th>
+      <th scope="col th-sm">First kill T</th>
+      <th scope="col th-sm">First kill Ct</th>
     </tr>
   </thead>
     <tbody>
@@ -55,4 +55,13 @@
         {% endfor %}
     </tbody>
 </table>
+{% endblock %}
+
+{% block javascriptsInit %}
+  <script>
+    $(document).ready(function () {
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
 {% endblock %}
